@@ -36,6 +36,32 @@ public class AppBasics {
 		return scanner.nextLine();
 	}
 
+	public static boolean requestBolean(String question) {
+		boolean answer = true;
+		String input;
+		System.out.print(question + " ");
+		input = scanner.nextLine();
+		try {
+			answer = Boolean.getBoolean(question);
+		} catch (NumberFormatException e) {
+			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
+			// System.exit(0);
+		}
+		return answer;
+	}
+
+	public static boolean requestChar(String question) {
+		boolean letter = true;
+		String input;
+		System.out.print(question + " ");
+		input = scanner.nextLine();
+		letter = Character.isJavaIdentifierPart(0);
+		if (letter != true) {
+			System.out.println("You didn't enter a single character. Try again. ");
+		}
+		return letter;
+	}
+
 	public static double requestDouble(String question) {
 		double num = 0;
 		String input;
@@ -71,6 +97,34 @@ public class AppBasics {
 		input = scanner.nextLine();
 		try {
 			num = Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
+			System.exit(0);
+		}
+		return num;
+	}
+
+	public static long requestLong(String question) {
+		long num = 0;
+		String input;
+		System.out.print(question + " ");
+		input = scanner.nextLine();
+		try {
+			num = Long.parseLong(question);
+		} catch (NumberFormatException e) {
+			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
+			System.exit(0);
+		}
+		return num;
+	}
+
+	public static short requestShort(String question) {
+		short num = 0;
+		String input;
+		System.out.print(question + " ");
+		input = scanner.nextLine();
+		try {
+			num = Short.parseShort(question);
 		} catch (NumberFormatException e) {
 			System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
 			System.exit(0);
