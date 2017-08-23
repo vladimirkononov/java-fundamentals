@@ -22,8 +22,10 @@ public class AppBasics {
 
 	private static Scanner scanner = new Scanner(System.in);
 
-	public static void farewellUser(String userName) {
-		System.out.println("Thank you, " + userName + " for using our application.");
+	private static String userName;
+
+	public static void farewellUser() {
+		System.out.println("\nThank you, " + userName + " for using our application.");
 		System.out.println("Have a nice day!");
 	}
 
@@ -34,8 +36,8 @@ public class AppBasics {
 		// variable
 		// String userName = null;
 		System.out.print("Can i get your name? ");
-		// String userName = scanner.nextLine();
-		return scanner.nextLine();
+		userName = scanner.nextLine();
+		return userName;
 	}
 
 	public static boolean requestBoolean(String question) {
